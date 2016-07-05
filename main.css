@@ -1,0 +1,42 @@
+
+#browser-action-panel {
+  width: 300px;
+  height: 520px;
+}
+
+body {
+  background-color: var(--in-content-page-background);
+  color: var(--in-content-page-color);
+}
+
+#about-panel,
+#report-buttons-panel,
+#report-buttons,
+#report-buttons > button {
+  width: 100%;
+}
+
+#page-stats-panel {
+  display: none;
+}
+
+#page-stats {
+  width: 230px;
+  height: 230px;
+}
+
+#about-panel > .panel-body ,
+#about-panel > .panel-footer {
+  text-align: center;
+}
+
+#piwik-url-label,
+#piwik-token-label {
+  width: 100px;
+  text-align: right;
+}
+
+#input-settings-piwik-url,
+#input-settings-piwik-token {
+  width: 200px;
+}

@@ -1,0 +1,22 @@
+{
+  "name": "piwik-reporting-addon",
+  "authors": [
+    "Paul Bottin <paul.bottin+git@gmail.com>"
+  ],
+  "description": "The Piwik Reporting Tool is an extension for modern browsers that provides quick summaries for the current tab and creates segmented report PDFs.",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.0.0",
+    "bootstrap": "^3.3.6"
+  }
+}

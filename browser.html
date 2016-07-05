@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+<body>
+  
+  <div id="browser-action-panel">
+    
+    <div id="about-panel" class="panel panel-default">
+      
+      <div class="panel-body">
+        <img src="icons/piwik-icon-400.png" width="80" height="80" />
+      </div>
+      
+      <div class="panel-footer">
+        <input id="settings-open" class="btn btn-sm btn-primary" type="button" value="Settings" />
+        <input id="report-generate" class="btn btn-sm btn-primary" type="button" value="Report" />
+      </div>
+      
+    </div>
+    
+    <div id="page-stats-panel" class="panel panel-default">
+      
+      <div class="panel-header">Statistics</div>
+      <div id="page-stats" class="panel-body"></div>
+      <div class="panel-footer">
+        <select id="summary-period" placeholder="summary period">
+          <option value="day">today</option>
+          <option value="week">this week</option>
+          <option value="month">this month</option>
+          <option value="year">this year</option>
+        </select>
+      </div>
+      
+    </div>
+    
+    
+    <div class="container-fluid">
+      <a id="project-link" href="#">visit project page</a>
+    </div>
+    
+  </div>
+  
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="piwik.js"></script>
+  <script src="browser.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+
+  "description": "The Piwik Reporting Tool is an extension for modern browsers that provides quick summaries for the current tab and creates segmented report PDFs.",
+  "manifest_version": 2,
+  "name": "Piwik Reporting Tool",
+  "version": "1.0",
+  "homepage_url": "https://github.com/fresc81/piwik-reporting-addon",
+  "icons": {
+    "48": "icons/piwik-icon-48.png"
+  },
+  
+  "permissions": [
+    "tabs",
+    "storage",
+    "*://*/*"
+  ],
+  
+  "applications": {
+    "gecko": {
+      "id": "piwik-reporting-addon@fresc81.github.com",
+      "strict_min_version": "45.0"
+    }
+  },
+
+  "browser_action": {
+    "default_icon": {
+      "48": "icons/piwik-icon-48.png"
+    },
+    "default_title": "Piwik Reporting Tool",
+    "default_popup": "browser.html"
+  },
+  
+  "background": {
+    "page": "background.html"
+  },
+
+  "options_ui": {
+    "chrome_style": true,
+    "page": "options.html"
+  }
+  
+}

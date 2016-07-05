@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+<body>
+  
+  <div id="options-content">
+    <form id="form-settings" action="#">
+      
+      <p>
+        <div class="input-group">
+          <span id="piwik-url-label" class="input-group-addon">Piwik URL</span>
+          <input id="input-settings-piwik-url" type="text" class="form-control" placeholder="URL" aria-describedby="piwik-url-label">
+        </div>
+        
+        <div class="input-group">
+          <span id="piwik-token-label" class="input-group-addon">Piwik Token</span>
+          <input id="input-settings-piwik-token" type="password" class="form-control" placeholder="URL" aria-describedby="piwik-token-label">
+        </div>
+      </p>
+      
+      <p>
+        <input id="input-settings-save" class="btn btn-sm btn-primary" type="submit" value="Save">
+        <input id="input-settings-reset" class="btn btn-sm btn-primary" type="button" value="Reset">
+      </p>
+      
+    </form>
+  </div>
+  
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="options.js"></script>
+  
+</body>
+</html>
