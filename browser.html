@@ -29,11 +29,12 @@
       <div class="panel-header">Statistics</div>
       <div id="page-stats" class="panel-body"></div>
       <div class="panel-footer">
+        <input id="summary-period-count" type="number" min="1" max="500" value="14" />
         <select id="summary-period" placeholder="summary period">
-          <option value="day">today</option>
-          <option value="week">this week</option>
-          <option value="month">this month</option>
-          <option value="year">this year</option>
+          <option value="day" selected>days</option>
+          <option value="week">weeks</option>
+          <option value="month">months</option>
+          <option value="year">years</option>
         </select>
       </div>
       

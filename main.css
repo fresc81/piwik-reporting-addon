@@ -1,12 +1,12 @@
 
 #browser-action-panel {
-  width: 300px;
-  height: 520px;
+  width: 320px;
+  height: 530px;
 }
 
 body {
-  background-color: var(--in-content-page-background);
-  color: var(--in-content-page-color);
+  background-color: inherit;
+  color: inherit;
 }
 
 #about-panel,
@@ -39,4 +39,8 @@ body {
 #input-settings-piwik-url,
 #input-settings-piwik-token {
   width: 200px;
+}
+
+#summary-period-count {
+  width: 50px;
 }

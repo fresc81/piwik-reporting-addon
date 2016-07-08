@@ -18,7 +18,13 @@ $(function () {
     
     sendResponse({
       type: "okay",
-      siteInfo: availableSites
+      siteInfo: {
+        availableSites: availableSites,
+        settings: {
+          piwikUrl: piwikApi.url,
+          piwikToken: piwikApi.token
+        }
+      }
     });
     
   }

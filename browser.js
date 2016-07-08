@@ -35,6 +35,9 @@ $(function () {
     
     // TODO: reload summary...
     console.log("reload summary...");
+    chrome.runtime.sendMessage({
+      type: "browser:requestSiteInfo"
+    }, onRequestSiteInfoResponse);
   }
   
   // opens the project homepage in a new tab
@@ -58,10 +61,18 @@ $(function () {
   }
   
   // load the quick summary for the currently active tab
-  function loadPageSummary (siteInfo) {
+  function loadPageSummary (url, idSite) {
     
-    console.log("load summary...");
-    $("#page-stats").text(siteInfo.idsite+" -> "+siteInfo.name);
+    console.log("load summary for '"+url+"'...");
+    
+    //$("#page-stats").text(siteInfo.idsite+" -> "+siteInfo.name);
+    
+    var periodBase = $("#summary-period").get(0).value;
+    var periodCount = $("#summary-period-count").get(0).value;
+    
+    $("#page-stats").empty().append(
+      $("<img>").attr("src", piwikApi.getVisitsSummaryImageURLForPageURL(idSite, url, periodBase, periodCount))
+    );
     $("#page-stats-panel").css("display", "block");
     
   }
@@ -76,10 +87,12 @@ $(function () {
       
       // if current tab's url matches the site
       // TODO: cleaner matching
-      if (activeTab.url.replace(/^https:/, "http:").startsWith(siteInfo.main_url)) {
+      var httpUrl = activeTab.url.replace(/^https:/, "http:");
+      if (httpUrl.startsWith(siteInfo.main_url)) {
         
         // TODO: print stats for current URL...
-        loadPageSummary(siteInfo);
+        
+        loadPageSummary(activeTab.url, siteInfo.idsite);
         
         // return early - only first match will be processed
         return;
@@ -93,7 +106,11 @@ $(function () {
   function onRequestSiteInfoResponse (response) {
     if (response.type === "okay") {
       
-      availableSites = response.siteInfo;
+      availableSites = response.siteInfo.availableSites;
+      console.log("available sites: ", availableSites);
+      
+      var settings = response.siteInfo.settings;
+      piwikApi = new PiwikAPI(settings.piwikUrl, settings.piwikToken);
       
       // get active tab
       chrome.tabs.query({ active: true }, function (activeTabs) {
@@ -117,6 +134,9 @@ $(function () {
   // keeps track of sites available for quick summary
   var availableSites = {};
   
+  //
+  var piwikApi = null;
+  
   // holds a reference to the tab that was active when the popup has been opened
   var activeTab = null;
   
@@ -128,6 +148,10 @@ $(function () {
   
   // control the quick summary period
   $("#summary-period")
+  .click(onClickSummaryPeriod)
+  .change(onChangeSummaryPeriod);
+  
+  $("#summary-period-count")
   .click(onClickSummaryPeriod)
   .change(onChangeSummaryPeriod);
   
